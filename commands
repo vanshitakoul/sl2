@@ -1,0 +1,6 @@
+ Final One-Line Install Command
+Run this in Anaconda Prompt or a terminal to install all required libraries:
+pip install pandas scikit-learn matplotlib seaborn nltk string plotly tensorflow keras xgboost lightgbm textblob spacy flask django jinja2 openpyxl pandas-profiling
+python -m nltk.downloader all
+python -m spacy download en_core_web_sm
+python -m textblob.download_corpora
