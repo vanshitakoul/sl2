@@ -1,4 +1,5 @@
 import pandas as pd
+import numpy as np
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
 from sklearn.ensemble import RandomForestClassifier
@@ -18,7 +19,7 @@ df['Age'] = df['Rings'] + 1.5
 
 # Task A: Classification (Young (<=10 rings) vs Old (>10 rings))
 
-df['AgeGroup'] = df['Rings'].apply(lambda x: 1 if x > 10 else 0)  # 1 = old, 0 = young
+df['AgeGroup'] = np.where(df['Rings'] > 10, 1, 0)
 X = df.drop(['Rings', 'Age', 'AgeGroup'], axis=1)
 y_class = df['AgeGroup']
 
