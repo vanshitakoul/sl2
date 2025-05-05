@@ -3,7 +3,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import mean_squared_error, accuracy_score
-from sklearn.preprocessing import LabelEncoder
+
 
 
 url = "https://archive.ics.uci.edu/ml/machine-learning-databases/abalone/abalone.data"
@@ -11,8 +11,7 @@ columns = ['Sex', 'Length', 'Diameter', 'Height', 'WholeWeight', 'ShuckedWeight'
 df = pd.read_csv(url, names=columns)
 
 
-le = LabelEncoder()
-df['Sex'] = le.fit_transform(df['Sex'])
+df['Sex'] = df['Sex'].map({'M': 0, 'F': 1, 'I': 2})
 
 df['Age'] = df['Rings'] + 1.5
 
